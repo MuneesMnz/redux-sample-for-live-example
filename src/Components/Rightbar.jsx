@@ -1,9 +1,11 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Rightbar = () => {
+  const name=useSelector(state=>state.user.name)
   const rightList = [
     {
-      title: "Recomended For Jhon",
+      title: `Recomended For ${name} `,
       img: "https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg",
     },
     {
