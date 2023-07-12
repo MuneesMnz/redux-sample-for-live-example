@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateUser } from "../Redux/apiCalls";
+import { updateUserTwo } from "../Redux/userSlice";
 // import { addHello, update } from "../Redux/userSlice";
 
 const UserInput = () => {
@@ -10,8 +11,21 @@ const UserInput = () => {
   const dispatch=useDispatch()
   const handleUpdate=(e)=>{
     e.preventDefault()
+
+    // Syncronus Method 
+    // -----------------
     // dispatch(addHello({name,email}))
-    updateUser({name,email},dispatch)
+
+
+    // Asyncronus Method 
+    //------------------
+    // updateUser({name,email},dispatch)
+
+    // Thunk Async Method 
+    //--------------------
+
+    dispatch(updateUserTwo({name,email}))
+
   }
   return (
     <>
