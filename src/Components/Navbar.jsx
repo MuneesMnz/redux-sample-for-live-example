@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const name=useSelector(state=>state.user.name)
+  const name=useSelector(state=>state.user.userInfo.name)
   return (
     <div className=" min-w-full h-12 border-b flex justify-between items-center ">
       <h1 className="flex-1 text-2xl text-blue-800 font-bold ml-3 ">MNZ APP</h1>

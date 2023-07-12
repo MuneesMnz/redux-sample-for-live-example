@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const Sidebar = () => {
-  const name = useSelector((state) => state.user.name);
+  const name = useSelector((state) =>state.user.userInfo.name);
   const sidebarList = [
     "Home",
     "List",

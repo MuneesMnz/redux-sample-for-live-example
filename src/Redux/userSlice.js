@@ -3,20 +3,45 @@ import { createSlice } from "@reduxjs/toolkit";
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    name: "mnz",
-    email: "mnz@gmail.com",
+    userInfo: {
+      name: "mnz",
+      email: "mnz@gmail.com",
+    },
+    pending: null,
+    error: false,
   },
   reducers: {
-    update: (state, action) => {
-      state.name = action.payload.name;
-      state.email = action.payload.email;
+    //Asyncronus Methods
+
+    updateStart: (state) => {
+      state.pending = true;
     },
-    remove: (state) => (state = {}),
-    addHello: (state, action) => {
-      state.name = "hello " + action.payload.name;
+    updateSuccess: (state, action) => {
+      state.pending = false;
+      state.userInfo = action.payload;
     },
+    updateError: (state) => {
+      state.error = true;
+      state.pending = false;
+    },
+
+    //Syncronus Methods
+
+    // update: (state, action) => {
+    //   state.name = action.payload.name;
+    //   state.email = action.payload.email;
+    // },
+    // remove: (state) => (state = {}),
+    // addHello: (state, action) => {
+    //   state.name = "hello " + action.payload.name;
+    // },
   },
 });
 
-export const { update, remove, addHello } = userSlice.actions;
+
+//Asyncronus Methods
+export const { updateStart,updateSuccess,updateError} = userSlice.actions;
+
+ //Syncronus Methods
+// export const { update, remove, addHello } = userSlice.actions;
 export default userSlice.reducer;

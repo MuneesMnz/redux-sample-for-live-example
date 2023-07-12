@@ -1,12 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { remove } from "../Redux/userSlice";
+// import { remove } from "../Redux/userSlice";
 
 const WarningComponent = () => {
-  const name=useSelector(state=>state.user.name)
+  const name=useSelector(state=>state.user.userInfo.name)
   const dispatch=useDispatch()
   const handleDelete=()=>{
-    dispatch(remove())
+    // dispatch(remove())
   }
   return (
     <>
