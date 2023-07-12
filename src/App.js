@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { Provider } from 'react-redux';
+import store from './Redux/store';
+import Navbar from './Components/Navbar';
+import Sidebar from './Components/Sidebar';
+import Main from './Components/Main';
+import Rightbar from './Components/Rightbar';
+import { useState } from 'react';
 
 function App() {
+  const [name,setName]=useState("munees")
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   <Provider store={store} >
+    <Navbar name={name} />
+    <div className='flex'>
+      <Sidebar />
+      <Main/>
+      <Rightbar/>
     </div>
+   </Provider>
   );
 }
 
